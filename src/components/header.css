@@ -1,0 +1,31 @@
+/* Header.css */
+
+/* Style for the main container */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333; /* Change the background color to your preference */
+  color: #fff; /* Change the text color to your preference */
+  padding: 10px 20px;
+}
+
+/* Style for the logo */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Style for the "aui" text */
+.aui {
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+/* Style for the profile photo */
+.profile-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff; /* Change the border color to your preference */
+}

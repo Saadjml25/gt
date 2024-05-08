@@ -1,0 +1,58 @@
+/* Navbar.css */
+
+/* Style for the main container */
+.navbar-container {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+/* Style for the search bar */
+.search-bar {
+  flex-grow: 0;
+  margin-right: 10px;
+  background-color: #0099cc; /* A shade of blue */
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Style for the Home link */
+.nav-link.home {
+  margin-right: 20px;
+  cursor: pointer;
+  background-color: #33cc33; /* A shade of green */
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #0077aa;
+}
+
+/* Style for the Restaurant link */
+.nav-link.restaurant {
+  margin-right: 20px;
+  cursor: pointer;
+  background-color: #ffcc00; /* A shade of yellow */
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Style for the People link */
+.nav-link.people {
+  margin-right: 20px;
+  cursor: pointer;
+  background-color: #ff6666; /* A shade of red */
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Style for the Orders link */
+.nav-link.orders {
+  cursor: pointer;
+  background-color: #9966ff; /* A shade of purple */
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Add any additional styling as needed */
