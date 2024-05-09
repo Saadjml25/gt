@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
@@ -19,12 +18,12 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import profileImage from "../../assets/user2.jpg";
 import logo from "../../assets/logo-no-background.png";
-import axios from "axios";
+import axios from 'axios';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
+ 
   return (
     <MenuItem
       active={selected === title}
@@ -38,39 +37,35 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
-const Sidebar = () => {
+const Sidebar = ( ) => {
+
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
-  const { t, i18n } = useTranslation();
-
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
-
   return (
     <Box
-    sx={{
-      height: '100vh',
-      "& .pro-sidebar-inner": {
-        baground: `${colors.primary[600]} !important`,
-        height: '100%', // Stretch sidebar to full height
-      },
-      "& .pro-icon-wrapper": {
-        backgroundColor: "transparent !important",
-      },
-      "& .pro-inner-item": {
-        padding: "5px 35px 5px 20px !important",
-      },
-      "& .pro-inner-item:hover": {
-        color: "#868dfb !important",
-      },
-      "& .pro-menu-item.active": {
-        color: "#6870fa !important",
-      },
-    }}
-  >
+      sx={{
+        height: '100vh',
+        "& .pro-sidebar-inner": {
+          baground: `${colors.primary[600]} !important`,
+          height: '100%', // Stretch sidebar to full height
+        },
+        "& .pro-icon-wrapper": {
+          backgroundColor: "transparent !important",
+        },
+        "& .pro-inner-item": {
+          padding: "5px 35px 5px 20px !important",
+        },
+        "& .pro-inner-item:hover": {
+          color: "#868dfb !important",
+        },
+        "& .pro-menu-item.active": {
+          color: "#6870fa !important",
+        },
+      }}
+    >
+      
       <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
@@ -89,6 +84,10 @@ const Sidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
+                {/* <Typography variant="h3" color={colors.grey[100]}>
+                  ADMINIS
+                </Typography> */}
+
                 <img
                   alt="profile-user"
                   width="150px"
@@ -124,7 +123,7 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  User
+                  {/* {username} */} User
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
                   Al Akhawayn university
@@ -135,7 +134,7 @@ const Sidebar = () => {
           {/* Menu */}
           <Box paddingLeft={isCollapsed ? undefined : "10px"}>
             <Item
-              title={t("Dashboard")}
+              title="Dashboard"
               to="/"
               icon={<HomeOutlinedIcon />}
               selected={selected}
@@ -146,17 +145,17 @@ const Sidebar = () => {
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
-              {t("Data")}
+              Data
             </Typography>
             <Item
-              title={t("Manage Team")}
+              title="Manage Team"
               to="/team"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title={t("Context Information")}
+              title="Context Information"
               to="/Contacts"
               icon={<ContactsOutlinedIcon />}
               selected={selected}
@@ -164,7 +163,7 @@ const Sidebar = () => {
             />
 
             <Item
-              title={t("inventory overview")}
+              title="inventory overview"
               to="/Inventory"
               icon={<ReceiptOutlinedIcon />}
               selected={selected}
@@ -175,24 +174,24 @@ const Sidebar = () => {
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
-              {t("Pages")}
+              Pages
             </Typography>
             <Item
-              title={t("Profile Form")}
+              title="Profile Form"
               to="/Form"
               icon={<PersonOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title={t("calendar")}
+              title="calendar"
               to="/calendar"
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title={t("FAQ page")}
+              title="FAQ page"
               to="/faq"
               icon={<HelpOutlineOutlinedIcon />}
               selected={selected}
@@ -203,29 +202,30 @@ const Sidebar = () => {
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
-              {t("Charts")}
+              Charts
             </Typography>
             <Item
-              title={t("Bar chart")}
+              title="Bar chart"
               to="/bar"
               icon={<BarChartOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title={t("PIe chart")}
+              title="PIe chart"
               to="/pie"
               icon={<PieChartOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title={t("Line chart")}
+              title="Line chart"
               to="/line"
               icon={<TimelineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+            
           </Box>
         </Menu>
       </ProSidebar>
